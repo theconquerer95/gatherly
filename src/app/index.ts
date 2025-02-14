@@ -1,3 +1,3 @@
-import App from './RootLayout'
+import App from './RootLayout';
 
 export default App;

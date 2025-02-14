@@ -1,22 +1,35 @@
-import { Button } from '@design/Button'
-import { Pressable, View, Text } from 'react-native';
+import {View} from 'react-native';
+import {Button} from '@design/Button';
+import {Input} from '@design/Input';
+import {Text} from '@design/Text';
+import {useColorScheme} from 'hooks/useColorScheme';
 const Login = () => {
-    return (<View className='flex-1 justify-center'>
-        <View className='items-center'>
-            <Text className='text-2xl font-bold'>
-                Gatherly
-            </Text>
-        </View>
-        <Button>
-            {/* On Press, it will also log "Button pressed" since the `Button` props will be merged and passed to the `Pressable` */}
-            <Pressable onPress={() => {
-                console.log('Pressed')
-            }}>
-                <Text>Login</Text>
-            </Pressable>
-        </Button>
+  const {toggleColorScheme} = useColorScheme();
+  const handleThemeTogglePress = () => {
+    toggleColorScheme();
+  };
+  return (
+    <View className="flex-1 justify-center px-4 gap-4 bg-card">
+      <View className="items-center">
+        <Text className="text-2xl font-bold">Gatherly</Text>
+      </View>
+      <Input
+        className=""
+        placeholder="Username"
+        aria-labelledby="inputLabel"
+        aria-errormessage="inputError"
+      />
+      <Input
+        className=""
+        placeholder="Password"
+        aria-labelledby="inputLabel"
+        aria-errormessage="inputError"
+      />
+      <Button onPress={handleThemeTogglePress}>
+        <Text>Sign In</Text>
+      </Button>
+    </View>
+  );
+};
 
-    </View>)
-}
-
-export default Login
+export default Login;
