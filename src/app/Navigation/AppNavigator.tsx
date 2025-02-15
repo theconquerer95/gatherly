@@ -12,7 +12,7 @@ const AppNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          headerTitle: '', // Removes the title in the center
+          headerTitle: '',
           headerBackTitle: '',
         }}
         id={undefined}>
