@@ -1,14 +1,11 @@
-import React from 'react';
 import { View } from 'react-native';
 import { Button } from '@design/Button';
 import { Input } from '@design/Input';
 import { Text } from '@design/Text';
-import { useColorScheme } from 'hooks/useColorScheme';
 
-const Login = () => {
-  const { toggleColorScheme } = useColorScheme();
+export const Login = ({}) => {
   const handleThemeTogglePress = () => {
-    toggleColorScheme();
+    // navigation.navigate('Landing');
   };
   return (
     <View className="flex-1 justify-center px-4 gap-4 bg-card">
@@ -33,5 +30,3 @@ const Login = () => {
     </View>
   );
 };
-
-export default Login;
