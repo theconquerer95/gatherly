@@ -8,7 +8,11 @@ const Stack = createNativeStackNavigator();
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerTitle: '', // Removes the title in the center
+          headerBackTitle: '',
+        }}>
         {routeConfig.map(route => (
           <Stack.Screen
             key={route.name}
