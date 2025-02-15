@@ -1,13 +1,21 @@
-import {View} from 'react-native';
-import {Button} from '@design/Button';
-import {Input} from '@design/Input';
-import {Text} from '@design/Text';
-import {useColorScheme} from 'hooks/useColorScheme';
-const Login = () => {
-  const {toggleColorScheme} = useColorScheme();
+import { FC } from 'react';
+import { View } from 'react-native';
+import { Button } from '@design/Button';
+import { Input } from '@design/Input';
+import { Text } from '@design/Text';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
+import { RootStackParamList } from '../types';
+
+type LoginProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'Login'>;
+};
+
+export const Login: FC<LoginProps> = ({ navigation }) => {
   const handleThemeTogglePress = () => {
-    toggleColorScheme();
+    navigation.navigate('Landing');
   };
+
   return (
     <View className="flex-1 justify-center px-4 gap-4 bg-card">
       <View className="items-center">
@@ -31,5 +39,3 @@ const Login = () => {
     </View>
   );
 };
-
-export default Login;

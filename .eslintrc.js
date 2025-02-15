@@ -58,4 +58,5 @@ module.exports = {
       },
     },
   ],
+  ignorePatterns: ['!/.prettierrc.js'], // Ensures .prettierrc.js is linted
 };
