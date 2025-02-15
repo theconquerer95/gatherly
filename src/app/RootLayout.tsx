@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FC, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Platform } from 'react-native';
 import { ThemeProvider, useTheme } from '@design/theme-context';
 import { ThemeProvider as NavThemeProvider } from '@react-navigation/native';
@@ -8,12 +8,14 @@ import AppNavigator from './Navigation/AppNavigator';
 import '../global.css';
 
 const useIsomorphicLayoutEffect =
-  Platform.OS === 'web' ? React.useEffect : React.useLayoutEffect;
+  Platform.OS === 'web' ? useEffect : useLayoutEffect;
 
-function RootLayout() {
-  const hasMounted = React.useRef(false);
+type RootLayoutProps = {};
+
+const RootLayout: FC<RootLayoutProps> = () => {
+  const hasMounted = useRef(false);
   const { navTheme } = useTheme(); // Get navigation theme
-  const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false);
+  const [isColorSchemeLoaded, setIsColorSchemeLoaded] = useState(false);
 
   useIsomorphicLayoutEffect(() => {
     if (hasMounted.current) return;
@@ -29,7 +31,7 @@ function RootLayout() {
       <AppNavigator />
     </NavThemeProvider>
   );
-}
+};
 
 export default () => (
   <ThemeProvider>
