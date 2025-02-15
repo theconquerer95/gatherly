@@ -1,10 +1,12 @@
-import {View} from 'react-native';
-import {Button} from '@design/Button';
-import {Input} from '@design/Input';
-import {Text} from '@design/Text';
-import {useColorScheme} from 'hooks/useColorScheme';
+import React from 'react';
+import { View } from 'react-native';
+import { Button } from '@design/Button';
+import { Input } from '@design/Input';
+import { Text } from '@design/Text';
+import { useColorScheme } from 'hooks/useColorScheme';
+
 const Login = () => {
-  const {toggleColorScheme} = useColorScheme();
+  const { toggleColorScheme } = useColorScheme();
   const handleThemeTogglePress = () => {
     toggleColorScheme();
   };

@@ -1,5 +1,6 @@
 package com.gatherly
 
+import android.os.Bundle
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
@@ -12,6 +13,13 @@ class MainActivity : ReactActivity() {
    * rendering of the component.
    */
   override fun getMainComponentName(): String = "gatherly"
+
+  /**
+   * Ensures that navigation gestures work properly by preventing state restoration issues.
+   */
+  override fun onCreate(savedInstanceState: Bundle?) {
+      super.onCreate(null)
+  }
 
   /**
    * Returns the instance of the [ReactActivityDelegate]. We use [DefaultReactActivityDelegate]

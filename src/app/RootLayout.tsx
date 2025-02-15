@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Platform} from 'react-native';
-import {ThemeProvider, useTheme} from '@design/theme-context';
-import {ThemeProvider as NavThemeProvider} from '@react-navigation/native';
+import { Platform } from 'react-native';
+import { ThemeProvider, useTheme } from '@design/theme-context';
+import { ThemeProvider as NavThemeProvider } from '@react-navigation/native';
 
-import Login from './Login';
+import AppNavigator from './Navigation/AppNavigator';
 
 import '../global.css';
 
@@ -12,7 +12,7 @@ const useIsomorphicLayoutEffect =
 
 function RootLayout() {
   const hasMounted = React.useRef(false);
-  const {navTheme} = useTheme(); // Get navigation theme
+  const { navTheme } = useTheme(); // Get navigation theme
   const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false);
 
   useIsomorphicLayoutEffect(() => {
@@ -26,7 +26,7 @@ function RootLayout() {
 
   return (
     <NavThemeProvider value={navTheme}>
-      <Login />
+      <AppNavigator />
     </NavThemeProvider>
   );
 }

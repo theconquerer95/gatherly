@@ -37,6 +37,12 @@ module.exports = {
     ],
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
+
+    // Ignore unused React import
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      { varsIgnorePattern: '^React$' },
+    ],
   },
   overrides: [
     {
@@ -58,4 +64,5 @@ module.exports = {
       },
     },
   ],
+  ignorePatterns: ['!/.prettierrc.js'], // Ensures .prettierrc.js is linted
 };
