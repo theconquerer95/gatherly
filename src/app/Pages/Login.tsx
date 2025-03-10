@@ -17,24 +17,21 @@ export const Login: FC<LoginProps> = ({ navigation }) => {
   };
 
   return (
-    <View className="flex-1 justify-center px-4 gap-4 bg-card">
+    <View className="flex-1 justify-end px-4 gap-4 bg-card mb-40 bg-secondary">
       <View className="items-center">
         <Text className="text-2xl font-bold">Gatherly</Text>
       </View>
       <Input
         className=""
-        placeholder="Username"
-        aria-labelledby="inputLabel"
-        aria-errormessage="inputError"
-      />
-      <Input
-        className=""
-        placeholder="Password"
+        placeholder="Enter your email"
         aria-labelledby="inputLabel"
         aria-errormessage="inputError"
       />
       <Button onPress={handleThemeTogglePress}>
-        <Text>Sign In</Text>
+        <Text>Log In</Text>
+      </Button>
+      <Button onPress={handleThemeTogglePress} variant="ghost">
+        <Text>Sign Up</Text>
       </Button>
     </View>
   );
