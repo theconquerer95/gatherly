@@ -1,10 +1,10 @@
 // import { lazy } from 'react';
 import { Landing } from '../Pages/Landing';
 import { Login } from '../Pages/Login';
+import { LoginViaMobile } from '../Pages/LoginViaMobile';
 import { RootStackParamList } from '../types';
 
 import { routeKeys } from './routeKeys';
-
 // Lazy load screens
 // const Login = lazy(() => require('../Pages/Login'));
 // const Landing = lazy(() => require('../Pages/Landing'));
@@ -22,5 +22,9 @@ export const Route_Config: RouteConfigType[] = [
   {
     name: routeKeys.Landing,
     component: Landing,
+  },
+  {
+    name: routeKeys.LoginViaMobile,
+    component: LoginViaMobile,
   },
 ];
