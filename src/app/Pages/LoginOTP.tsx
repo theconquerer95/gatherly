@@ -3,10 +3,17 @@ import { Text as RNText, View } from 'react-native';
 import { Button } from '@design/Button';
 import OTPInput from '@design/InputOTP';
 import { Text } from '@design/Text';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
+import { RootStackParamList } from '../types';
 
 import { LandingBackground } from './LandingBackground';
 
-export const Landing = () => {
+export const LoginOTP = ({
+  navigation,
+}: {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'LoginOTP'>;
+}) => {
   const userEmail = 'ayush.tiwari@umassd.edu';
   const [timeLeft, setTimeLeft] = useState(600); // 10 minutes in seconds
 
@@ -15,6 +22,7 @@ export const Landing = () => {
       setTimeLeft(prev => {
         if (prev <= 0) {
           clearInterval(timer);
+          navigation.navigate('Login'); // Navigate back when timer exhausts
           return 0;
         }
         return prev - 1;
@@ -22,10 +30,10 @@ export const Landing = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [navigation]); // Added navigation to dependency array
 
-  const handleThemeTogglePress = () => {
-    console.log('Theme toggle pressed');
+  const handleChangeEmailPress = () => {
+    navigation.navigate('Login');
   };
 
   const formatTime = (seconds: number) => {
@@ -55,7 +63,10 @@ export const Landing = () => {
           length={6}
           onComplete={(value: string) => console.log(value)}
         />
-        <Button onPress={handleThemeTogglePress} variant="ghost">
+        {/* TODO: add resend OTP button */}
+
+        {/* TODO: change email button must not be visible if user is new, only visible if user is existing  -  make this conditional */}
+        <Button onPress={handleChangeEmailPress} variant="ghost">
           <Text>Change Email</Text>
         </Button>
       </View>

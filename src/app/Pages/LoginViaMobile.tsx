@@ -15,7 +15,7 @@ type LoginViaMobileProps = {
 
 export const LoginViaMobile: FC<LoginViaMobileProps> = ({ navigation }) => {
   const handleContinue = () => {
-    navigation.navigate('Landing');
+    navigation.navigate('LoginOTP');
   };
 
   return (
@@ -35,18 +35,17 @@ export const LoginViaMobile: FC<LoginViaMobileProps> = ({ navigation }) => {
             <Text>+1</Text>
           </View>
           <Input
+            wrapperClassName="flex-1"
             inputMode="numeric"
-            className="bg-background flex-1"
+            className="bg-background"
             placeholder="XXX-XXX-XXXX"
             keyboardType="phone-pad"
-            aria-labelledby="inputLabel"
-            aria-errormessage="inputError"
           />
         </View>
         <Button onPress={handleContinue}>
           <Text>Get OTP</Text>
         </Button>
-        <Text className="text-center text-xs text-muted-foreground">
+        <Text className="text-start text-xs text-muted-foreground">
           By continuing, you agree to our{' '}
           <Text className="text-primary underline">Terms of Service</Text> and{' '}
           <Text className="text-primary underline">Privacy Policy</Text>

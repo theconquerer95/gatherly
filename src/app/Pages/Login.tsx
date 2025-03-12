@@ -18,7 +18,14 @@ export const Login: FC<LoginProps> = ({ navigation }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleContinue = () => {
-    navigation.navigate('Landing');
+    // TODO: check if user is new or existing
+    if (true) {
+      // new user
+      navigation.navigate('SignUp');
+    } else {
+      // existing user
+      // navigation.navigate('LoginOTP');
+    }
   };
 
   return (
@@ -55,10 +62,10 @@ export const Login: FC<LoginProps> = ({ navigation }) => {
             onPress={() => navigation.navigate('LoginViaMobile')}
             variant="outline"
             className="rounded-full w-12 h-12 p-0 justify-center items-center">
-            <SmartphoneIcon size={20} />
+            <SmartphoneIcon className="text-muted-foreground" size={20} />
           </Button>
         </View>
-        <Text className="text-center text-xs text-muted-foreground">
+        <Text className="text-start text-xs text-muted-foreground">
           By continuing, you agree to our{' '}
           <Text className="text-primary underline">Terms of Service</Text> and{' '}
           <Text className="text-primary underline">Privacy Policy</Text>
