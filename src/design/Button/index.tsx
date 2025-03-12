@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Pressable} from 'react-native';
-import {TextClassContext} from '@design/Text';
-import {cva, type VariantProps} from 'class-variance-authority';
-import {cn} from 'utils/classnames';
+import { Pressable } from 'react-native';
+import { TextClassContext } from '@design/Text';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from 'utils/classnames';
 
 const buttonVariants = cva(
   'group flex items-center justify-center rounded-md web:ring-offset-background web:transition-colors web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2',
@@ -65,7 +65,7 @@ type ButtonProps = React.ComponentPropsWithoutRef<typeof Pressable> &
 const Button = React.forwardRef<
   React.ElementRef<typeof Pressable>,
   ButtonProps
->(({className, variant, size, ...props}, ref) => {
+>(({ className, variant, size, ...props }, ref) => {
   return (
     <TextClassContext.Provider
       value={buttonTextVariants({
@@ -76,7 +76,7 @@ const Button = React.forwardRef<
       <Pressable
         className={cn(
           props.disabled && 'opacity-50 web:pointer-events-none',
-          buttonVariants({variant, size, className}),
+          buttonVariants({ variant, size, className }),
         )}
         ref={ref}
         role="button"
@@ -87,5 +87,5 @@ const Button = React.forwardRef<
 });
 Button.displayName = 'Button';
 
-export {Button, buttonTextVariants, buttonVariants};
-export type {ButtonProps};
+export { Button, buttonTextVariants, buttonVariants };
+export type { ButtonProps };

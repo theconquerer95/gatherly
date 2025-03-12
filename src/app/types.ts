@@ -1,4 +1,6 @@
 export type RootStackParamList = {
   Login: undefined;
-  Landing: undefined;
+  LoginOTP: undefined;
+  LoginViaMobile: undefined;
+  SignUp: undefined;
 };
